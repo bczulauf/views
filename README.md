@@ -1,4 +1,4 @@
-make
+Template Views
 ====
 
-Angular version of Appmaker
+Template views for components

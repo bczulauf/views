@@ -23,15 +23,28 @@ app.config(function ($routeProvider) {
     }).when('/new', {
       controller: 'NewCtrl',
       templateUrl:'/views/componentForm.html'
-    }).otherwise({redirectTo: '/'});
+    }).when('/edit/:componentId', {
+      controller: 'EditCtrl',
+      resolve: {
+        component: function (LoadComponent) {
+          return LoadComponent();
+        }
+      },
+      templateUrl: '/views/componentForm.html'
+    })
+    .otherwise({redirectTo: '/'});
 });
 
 app.controller('ListCtrl', function ($scope, components) {
   $scope.components = components;
 });
 
-app.controller('ViewCtrl', function ($scope, component) {
+app.controller('ViewCtrl', function ($scope, component, $location) {
   $scope.component = component;
+
+  $scope.edit = function() {
+    $location.path('/edit/' + component.id);
+  };
 });
 
 app.controller('NewCtrl', function ($scope, Component, $location) {
@@ -47,3 +60,24 @@ app.controller('NewCtrl', function ($scope, Component, $location) {
     history.go(-1)
   };
 });
+
+app.controller('EditCtrl', function ($scope, $location, component) {
+  $scope.component = component;
+
+  $scope.save = function() {
+    $scope.component.$save(function(component) {
+      $location.path('/component/' + component.id);
+    });
+  };
+
+  $scope.remove = function() {
+    delete $scope.component;
+    $location.path('/');
+  };
+
+  $scope.back = function() {
+    history.go(-1)
+  };
+})
+
+

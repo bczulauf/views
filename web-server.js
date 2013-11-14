@@ -12,11 +12,13 @@ app.configure(function(){
 var componentsMap = {
   '1': {
     "id": 1,
-    "name": "Button"
+    "name": "Button",
+    "url": "button.html"
   },
   '2': {
     "id": 2,
-    "name": "Slider"
+    "name": "Slider",
+    "url": "slider.html"
   }
 };
 var next_id = 3;
@@ -39,7 +41,7 @@ app.post('/components', function(req, res) {
   var component = {};
   component.id = next_id++;
   component.name = req.body.name;
-  console.log(component.name)
+  component.url = req.body.url;
 
   componentsMap[component.id] = component;
 

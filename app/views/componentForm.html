@@ -1,6 +1,8 @@
 <form name="componentForm" ng-submit="save()">
   <label for="name">Name:</label>
-  <input ng-model="component.name" id="name" focus required>
+  <input ng-model="component.name" id="name" required>
+  <label for="url">URL:</label>
+  <input ng-model="component.url" id="url" required>
   <div>
     <button class="btn btn-primary" ng-disabled="componentForm.$invalid">Save</button>
     <button type="button" ng-click="back()" class="btn">Cancel</button>

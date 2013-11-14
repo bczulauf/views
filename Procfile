@@ -1,1 +1,1 @@
-PORT=5002
+web: node web-server.js

@@ -1,1 +1,23 @@
-<h1>Design</h1>
+<button class="btn btn-primary btn-publish">Publish</button>
+<button class="btn btn-app btn-info">Todo App</button>
+<div class="clearfix">
+	<div class="panel-left">
+		<button class="btn btn-default">New Block</button>
+		<div ng-controller="TodoCtrl">
+			<todoslist></todoslist>
+			<mozform></mozform>
+		</div>
+	</div>
+	<div class="panel-center">
+		<div class="current-page" show-data template="{{currentPage.content}}">{{currentPage.content}}</div>
+		<colorpicker></colorpicker>
+	</div>
+	<div class="panel-right">
+		<div ng-controller="PageListCtrl">
+			<div class="pages">
+			  <div ng-repeat="page in pages" class="page"><a ng-href="/#/design/{{page.id}}">{{page.title}}</a></div>
+			</div>
+			<a href="/#/new"><button class="btn btn-default">New Page</button></a>
+		</div>
+	</div>
+</div>

@@ -14,49 +14,8 @@ a {
 	color: #34495e;
 }
 
-compiler {
-	display: block;
-}
-
 .logo {
-	position: fixed;
-	top: 10px;
-	left: 10px;
-}
 
-.panel-left {
-	width: 25%;
-	float: left;
-	margin-top: 80px;
-}
-
-.panel-center {
-	width: 50%;
-	float: left;
-}
-
-.panel-center .current-page {
-	margin: 80px auto 5px auto;
-	min-height: 460px;
-	width: 326px;
-	border-radius: 8px;
-	border: 15px solid #13202C;
-	box-sizing:border-box;
-  -moz-box-sizing:border-box; /* Firefox */
-}
-
-.panel-right {
-	width: 25%;
-	float: left;
-	margin-top: 80px;
-}
-
-.panel-right .page {
-	margin: 0px 0px 5px 0px;
-	background-color: #e4e7ea;
-	border-radius: 4px;
-	padding: 5px 15px;
-	max-width: 200px;
 }
 
 .clearfix:after {
@@ -68,30 +27,6 @@ compiler {
    visibility:hidden;
    width:0;
    height:0
-}
-
-.page-color-component {
-	width: 326px;
-	margin: 0 auto;
-}
-
-.page-color {
-	border-radius: 4px;
-	padding: 10px 10px;
-	background-color: #eff0f2;
-	display: inline-block;
-}
-
-.color-option {
-	height: 25px;
-	width: 25px;
-	border-radius: 15px;
-	float: left;
-	margin-right: 10px;
-}
-
-.color-option:last-child {
-	margin-right: 0px;
 }
 
 /* BUTTONS */
@@ -236,34 +171,4 @@ fieldset[disabled] .btn-info:active,
 .btn-info[disabled].active,
 fieldset[disabled] .btn-info.active {
   background-color: #3498db;
-}
-
-/* COLORS */
-
-.white {
-	background-color: #FFF;
-}
-.clouds {
-	background-color: #ECF0F1;
-}
-.concrete {
-	background-color: #95A5A6;
-}
-.wet-asphalt {
-	background-color: #34495E;
-}
-.peter-river {
-	background-color: #3498DB;
-}
-.carrot {
-	background-color: #E67E22;
-}
-.alizarin {
-	background-color: #E74C3C;
-}
-.sun-flower {
-	background-color: #F1C40F;
-}
-.turquoise {
-	background-color: #1ABC9C;
 }

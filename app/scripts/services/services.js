@@ -3,51 +3,32 @@
 var services = angular.module('appmaker.services',
     ['ngResource']);
 
-services.factory('Page', ['$resource',
+services.factory('Component', ['$resource',
     function($resource) {
-  return $resource('/pages/:id', {id: '@id'});
+  return $resource('/components/:id', {id: '@id'});
 }]);
 
-services.factory('LoadPages', ['Page', '$q',
-    function(Page, $q) {
+services.factory('LoadComponents', ['Component', '$q',
+    function(Component, $q) {
   return function() {
     var delay = $q.defer();
-    Page.query(function(pages) {
-      delay.resolve(pages);
+    Component.query(function(components) {
+      delay.resolve(components);
     }, function() {
-      delay.reject('Unable to fetch pages');
+      delay.reject('Unable to fetch components');
     });
     return delay.promise;
   };
 }]);
 
-services.factory('LoadPage', ['Page', '$route', '$q',
-    function(Page, $route, $q) {
+services.factory('LoadComponent', ['Component', '$route', '$q',
+    function(Component, $route, $q) {
   return function() {
     var delay = $q.defer();
-    Page.get({id: $route.current.params.pageId}, function(page) {
-      delay.resolve(page);
+    Component.get({id: $route.current.params.componentId}, function(component) {
+      delay.resolve(component);
     }, function() {
-      delay.reject('Unable to fetch page '  + $route.current.params.pageId);
-    });
-    return delay.promise;
-  };
-}]);
-
-services.factory('Todo', ['$resource', 
-  function($resource) {
-    return $resource('/todo', {})
-  }
-]);
-
-services.factory('LoadTodos', ['Todo', '$q',
-    function(Todo, $q) {
-  return function() {
-    var delay = $q.defer();
-    Todo.query(function(todos) {
-      delay.resolve(todos);
-    }, function() {
-      delay.reject('Unable to fetch todos');
+      delay.reject('Unable to fetch component '  + $route.current.params.componentId);
     });
     return delay.promise;
   };

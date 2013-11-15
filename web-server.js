@@ -52,5 +52,16 @@ app.post('/components', function(req, res) {
   res.send(component);
 });
 
+app.post('/components/:id', function(req, res) {
+  var component = {};
+  component.id = req.params.id;
+  component.name = req.body.name;
+  component.url = req.body.url;
+
+  componentsMap[component.id] = component;
+
+  res.send(component);
+});
+
 app.listen(port);
 console.log('Now serving the app at http://localhost:' + port + '/');

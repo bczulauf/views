@@ -63,5 +63,11 @@ app.post('/components/:id', function(req, res) {
   res.send(component);
 });
 
+app.delete('/components/:id', function(req, res) {
+  var key = req.params.id;
+  delete componentsMap[key]
+  res.send();
+});
+
 app.listen(port);
 console.log('Now serving the app at http://localhost:' + port + '/');

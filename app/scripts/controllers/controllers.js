@@ -71,8 +71,9 @@ app.controller('EditCtrl', function ($scope, $location, component) {
   };
 
   $scope.remove = function() {
-    delete $scope.component;
-    $location.path('/');
+    $scope.component.$remove(function(component) {
+      $location.path('/');
+    });
   };
 
   $scope.back = function() {

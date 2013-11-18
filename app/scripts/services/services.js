@@ -33,3 +33,19 @@ services.factory('LoadComponent', ['Component', '$route', '$q',
     return delay.promise;
   };
 }]);
+
+services.factory('Notification', function ($resource) {
+  return $resource('/notification/:notificationId', {notificationId: '@id'});
+})
+
+services.factory('LoadNotification', function (Notification, $route, $q) {
+  return function () {
+    var delay = $q.defer();
+    Notification.get({notificationId: $route.current.params.notificationId}, function(notification) {
+      delay.resolve(notification);
+    }, function () {
+      delay.reject('Unable to fetch notification ' + $route.current.params.notificationId)
+    });
+    return delay.promise;
+  }
+})

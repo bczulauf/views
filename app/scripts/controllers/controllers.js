@@ -20,6 +20,14 @@ app.config(function ($routeProvider) {
         }
       },
       templateUrl: '/views/viewComponent.html'
+    }).when('/notification/:notificationId', {
+      controller: 'NotificationCtrl',
+      resolve: {
+        notification : function (LoadNotification) {
+          return LoadNotification();
+        }
+      },
+      templateUrl: "/views/componentForm.html"
     }).when('/new', {
       controller: 'NewCtrl',
       templateUrl:'/views/componentForm.html'
@@ -79,6 +87,11 @@ app.controller('EditCtrl', function ($scope, $location, component) {
   $scope.back = function() {
     history.go(-1)
   };
+})
+
+app.controller('NotificationCtrl', function ($scope, $location, notification) {
+  $scope.notification = notification;
+  $scope.isNotification = true;
 })
 
 

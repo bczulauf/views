@@ -69,5 +69,23 @@ app.delete('/components/:id', function(req, res) {
   res.send();
 });
 
+var notificationsMap = {
+  '1': {
+    "id": 1,
+    "type": "yuck",
+    "message": "This is a stupid component"
+  },
+  '2': {
+    "id": 2,
+    "type": "gross",
+    "message": "This component sucks"
+  }
+};
+
+app.get('/notification/:notificationId', function(req, res) {
+  console.log('Requesting notification with id', req.params.notificationId);
+  res.send(notificationsMap[req.params.notificationId]);
+});
+
 app.listen(port);
 console.log('Now serving the app at http://localhost:' + port + '/');
